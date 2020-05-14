@@ -1,8 +1,7 @@
 # st-flexipatch
 
-https://github.com/bakkeby/st-flexipatch
-
-An st build with preprocessor directives to decide which patches to include during build time 
+[st-flexipatch](https://github.com/bakkeby/st-flexipatch) is an st build with preprocessor directives to decide which patches to include during build time. 
+adalah
 
 ``` shell
 $ git clone https://github.com/bakkeby/st-flexipatch.git
@@ -92,3 +91,4 @@ unsigned int defaultrcs = 0;
 ???
 * The transparancy enable via compton
 
+And this is my bash script to help me easily install st-flexipatch on my debian machine.
