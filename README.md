@@ -1,12 +1,16 @@
-[st-flexipatch](https://github.com/bakkeby/st-flexipatch) adalah sebuah tool untuk membantu menginstal Simple Terminal dari suckless.org, tool ini dilengkapi dengan patch-patch yang langsung siap dipakai untuk diterapkan di Simple Terminal dengan cara yang sangat mudah yaitu cukup dengan mengganti value dari bernilai 0 (disable) menjadi 1 (enable) pada pengaturan patch-patch tersebut yaitu pada file patches.h
+[st-flexipatch](https://github.com/bakkeby/st-flexipatch) adalah sebuah *tool* untuk membantu menginstal [Simple Terminal](https://st.suckless.org/) dari suckless.org, *tool* ini dilengkapi dengan berbagai *patch* yang bisa langsung dipakai untuk diterapkan di *Simple Terminal* dengan cara yang sangat mudah yaitu cukup dengan mengganti nilai dari bernilai 0 (*disable*) menjadi 1 (*enable*) pada pengaturan berbagai *patch* tersebut yaitu pada *file* patches.h
 
-## Why I use it?
+## Alasan memakai *tool* ini?
 
-I want to install the latest version of Simple Terminal (v0.8.3) but the patch that I need only able to be applied to the previous version of Simple Terminal and I can not fix it by my self so I search another way to install it and then I've found st-flexipatch which is a tool that can easily achieve what I need.
+Aku ingin menginstal versi terbaru dari *Simple Terminal* (v0.8.3), tapi beberapa *patch* yang aku butuhkan tidak cocok untuk diterapkan di versi terbaru ini karena memang belum diperbarui untuk versi ini.
+
+Dengan pemahaman yang minim tentang bahasa c dan *patching*, tentunya aku akan sangat kesulitan jika ingin memperbaiki *patch-patch* tersebut.
+
+Maka dari itu aku mencari cara alternatif untuk menginstal versi terbaru dari *Simple Terminal*, dan untunglah ternyata ada yang sudah membuat *tool*nya yaitu st-flexipatch.
 
 ## Berikut adalah cara penggunaannya:
 
-* Clone repo st-flexipatch and then build first to try without patch
+* *Clone* *repo* st-flexipatch, kemudian *build* dulu untuk mencobanya tanpa *patch*
 
   ``` shell
   $ git clone https://github.com/bakkeby/st-flexipatch.git
@@ -15,31 +19,31 @@ I want to install the latest version of Simple Terminal (v0.8.3) but the patch t
   $ ./st &
   ```
 
-* Enable patches of your choices by editing file patches.h
+* Aktifkan *patch-patch* yang akan kamu pakai dengan meng-*edit* *file* patches.h
 
   ``` shell
-  $ nvim patches.h   # you can use your favorite inferior text editor of your choice to edit this file.
+  $ nvim patches.h   # Disini kita pakai nvim (neovim), tapi kamu bisa menggantinya dengan text editor yang lain yang kamu suka.
   ```
 
   ``` c++
-  /* I only need 2 patch: KEYBOARDSELECT & SCROLLBACK, so I only change the value from 0 to 1
-   * only to these patches
+  /* Disini aku hanya pakai 2 patch: KEYBOARDSELECT & SCROLLBACK, jadi aku hanya mengubah nilai 0 ke 1
+   * hanya pada kedua patch tsb seperti berikut
    */
   #define KEYBOARDSELECT_PATCH 1
   #define SCROLLBACK_PATCH 1
   ```
 
-* Make some change to config.h if you don't like the default configuration
+* Buat beberapa perubahan pada *file* config.h jika kamu tidak suka pengaturan *default*-nya
 
   ``` shell
-  $ nvim config.h   # you can use your favorite inferior text editor of your choice to edit this file.
+  $ nvim config.h   # Disini kita pakai nvim (neovim), tapi kamu bisa menggantinya dengan text editor yang lain yang kamu suka.
   ```
 
   ``` c++
-  /* I prefer font of Dejavu Sans Mono then the default font */
+  /* Font-nya aku ubah ke Dejavu Sans Mono karena lebih nyaman dengan font ini */
   static char *font = "DejaVu Sans Mono for Powerline:style=Book:pixelsize=12:antialias=true:autohint=true";
 
-  /* Below is color scheme of gruvbox theme with little change to the background */
+  /* Berikut ini adalah color scheme dari tema gruvbox, background-nya aku ubah ke #000000 agar lebih gelap */
   /* Terminal colors (16 first used in escape sequence) */
   static const char *colorname[] = {
       "#000000",   // "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
@@ -77,7 +81,7 @@ I want to install the latest version of Simple Terminal (v0.8.3) but the patch t
   unsigned int defaultrcs = 0;
   ```
 
-* Now build again then install to the system
+* Sekarang *build* lagi lalu instal ke sistem
 
   ``` shell
   ## Build
@@ -106,22 +110,22 @@ I want to install the latest version of Simple Terminal (v0.8.3) but the patch t
   Please see the README file regarding the terminfo entry of st.
   ```
 
-## Installer script
+## *Installer script*
 
-Untuk memudahkan proses instalasi, aku buat installer nya pakai bash script, cara pakainya seperti berikut:
+Selain cara diatas untuk menginstal *Simple Terminal* via st-flexipatch, untuk memudahkan proses instalasi, aku buat instalernya pakai bash script, cara pakainya seperti berikut:
 
 ``` shell
 $ git clone https://github.com/kenardes/my-st-flexipatch.git
 
 $ cd my-st-flexipatch
 
-## choose one of these command:
+## Pilih salah satu dari perintah berikut:
 
-$ ./install.sh -b   ## to build
+$ ./install.sh -b   ## untuk build
 
-$ ./install.sh -u   ## to uninstall
+$ ./install.sh -u   ## untuk uninstall
 
-$ ./install.sh -i   ## to install
+$ ./install.sh -i   ## untuk install
 ```
 
 ## Next:
