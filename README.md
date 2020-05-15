@@ -127,6 +127,3 @@ $ ./install.sh -u   ## untuk uninstall
 
 $ ./install.sh -i   ## untuk install
 ```
-
-## Next:
-* translate
