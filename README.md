@@ -105,7 +105,24 @@ I want to install the latest version of Simple Terminal (v0.8.3) but the patch t
   7 entries written to /etc/terminfo
   Please see the README file regarding the terminfo entry of st.
   ```
+
+## Installer script
+
+Untuk memudahkan proses instalasi, aku buat installer nya pakai bash script, cara pakainya seperti berikut:
+
+``` shell
+$ git clone https://github.com/kenardes/my-st-flexipatch.git
+
+$ cd my-st-flexipatch
+
+## choose one of these command:
+
+$ ./install.sh -b   ## to build
+
+$ ./install.sh -u   ## to uninstall
+
+$ ./install.sh -i   ## to install
+```
+
 ## Next:
 * translate
-* install script: a bash script to help me easily install st-flexipatch on my debian linux machine.
-
