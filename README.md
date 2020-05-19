@@ -3,20 +3,19 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [Suckless's Simple Terminal (ST)](#suckless's-simple-terminal-(st))
-    - [List of files](#list-of-files)
-    - [Simple Terminal (ST)](#simple-terminal-(st))
-        - [Fitur](#fitur)
-        - [Shortcut](#shortcut)
-    - [st-flexipatch](#st-flexipatch)
-        - [Alasan memakai *tool* ini?](#alasan-memakai-*tool*-ini?)
-        - [Berikut adalah cara penggunaannya:](#berikut-adalah-cara-penggunaannya:)
-        - [*Installer script*](#*installer-script*)
-        - [Transparansi](#transparansi)
+- [*List of files*](#list-of-files)
+- [*Simple Terminal (ST)*](#simple-terminal-st)
+    - [Fitur](#fitur)
+    - [*Shortcut*](#shortcut)
+- [*st-flexipatch*](#st-flexipatch)
+    - [Alasan menggunakan tool ini](#alasan-menggunakan-tool-ini)
+    - [Berikut adalah cara penggunaannya:](#berikut-adalah-cara-penggunaannya)
+    - [*Installer script*](#installer-script)
+    - [Transparansi](#transparansi)
 
 <!-- markdown-toc end -->
 
-## List of files
+## *List of files*
 
 ``` shell
 $ tree
@@ -28,11 +27,11 @@ $ tree
 └── README.md
 ```
 
-## Simple Terminal (ST)
+## *Simple Terminal (ST)*
 
 **[Simple Terminal (ST)](https://st.suckless.org/)** adalah sejenis *terminal emulator* yang sederhana dan ringan yang dikembangkan oleh suckless.org yang mana dalam setiap proses instalasi dan pengubahan konfigurasi kita harus meng-*compile* kode sumbernya. Konsep / filosofi yang diusung dalam pengembangan ST ini adalah sebuah *terminal emulator* yang bagus tapi dengan fitur yang sangat minim tanpa perlu dijejali berbagai fitur yang sebenarnya sudah ada pada *tool* lain semacam *tmux*, dan memang idealnya *terminal emulator* ini digunakan secara bersamaan dengan *tmux*. Namun jika kamu ingin menambahkan sejumlah fitur secara *built-in (hard code)* tanpa harus memakai *tmux* maka kamu bisa menambahkannya melalui *patch*, sebagai contoh disini saya memakai *patch scrollback* supaya bisa *scroll* keatas / kebawah cukup melalui *keyboard* saja dan *patch keyboardselect* supaya bisa meng-*copy-paste* teks di *terminal emulator* juga hanya dengan melalui *keyboard* saja, kedua *patch* tersebut saya perlukan untuk mengurangi ketergantungan pada penggunaan *mouse* saat memakai *terminal emulator*.
 
-> Versi st saat ini: 0.8.3
+> Versi ST saat ini: 0.8.3
 
 ### Fitur
 
@@ -44,7 +43,7 @@ kustomisasi ku, diantaranya:
 * *Scroll up / scroll down* tanpa menggunakan *mouse*
 * *Select / copy / paste* tanpa menggunakan *mouse*
 
-### Shortcut
+### *Shortcut*
 
 Pengaturan shortcut ada di *config.h*, contohnya seperti berikut:
 
@@ -111,11 +110,11 @@ static Shortcut shortcuts[] = {
   * Untuk meng-*copy* ke *CLIPBOARD*, tekan *Ctrl-Shift-c*
   * Tekan *Esc* untuk menonaktifkan fitur ini
 
-## st-flexipatch
+## *st-flexipatch*
 
 [st-flexipatch](https://github.com/bakkeby/st-flexipatch) adalah sebuah *tool* untuk membantu menginstal [Simple Terminal](https://st.suckless.org/) dari suckless.org, *tool* ini dilengkapi dengan berbagai *patch* yang bisa langsung dipakai untuk diterapkan di *Simple Terminal* dengan cara yang sangat mudah yaitu cukup dengan mengganti nilai 0 (*disable*) menjadi 1 (*enable*) pada *file patches.h*
 
-### Alasan memakai *tool* ini?
+### Alasan menggunakan tool ini
 
 Aku ingin menginstal versi terbaru dari *Simple Terminal* (v0.8.3), tapi beberapa *patch* yang aku butuhkan tidak cocok untuk diterapkan di versi terbaru ini karena memang belum diperbarui untuk versi ini.
 
